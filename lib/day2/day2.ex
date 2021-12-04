@@ -37,6 +37,22 @@ defmodule AdventOfCode2021.Day2 do
     horizontal * depth
   end
 
+  @doc """
+  Parse the content of the input file for this day.
+  Returns a list tuples. Each tuple has a command (:forward, :up or :down)
+  and a Integer
+  """
+  def parse_input(content) do
+    content
+    |> String.split("\n", trim: true)
+    |> Enum.map(&convert_string_to_atom_and_integer/1)
+  end
+
+  defp convert_string_to_atom_and_integer(content) do
+    [atom, int] = String.split(content)
+    {String.to_atom(atom), String.to_integer(int)}
+  end
+
   defp move({:forward, units}, {horizontal, depth}), do: {horizontal + units, depth}
   defp move({:down, units}, {horizontal, depth}), do: {horizontal, depth + units}
   defp move({:up, units}, {horizontal, depth}), do: {horizontal, depth - units}

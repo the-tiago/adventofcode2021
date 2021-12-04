@@ -54,6 +54,22 @@ defmodule AdventOfCode2021.Day3 do
     oxygen * co2
   end
 
+  @doc """
+  Parse the content of the input file for this day.
+  Returns a list of lists of integers
+  """
+  def parse_input(content) do
+    content
+    |> String.split("\n", trim: true)
+    |> Enum.map(&convert_string_to_list_of_integers/1)
+  end
+
+  defp convert_string_to_list_of_integers(content) do
+    content
+    |> String.codepoints()
+    |> Enum.map(&String.to_integer(&1))
+  end
+
   defp compute_most_significative([elem_head | elem_tail], [acc_head | acc_tail]) do
     [add_or_sub(elem_head, acc_head)] ++ compute_most_significative(elem_tail, acc_tail)
   end

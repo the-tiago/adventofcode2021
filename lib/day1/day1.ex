@@ -32,6 +32,16 @@ defmodule AdventOfCode2021.Day1 do
     part_1(lst)
   end
 
+  @doc """
+  Parse the content of the input file for this day.
+  Returns a list of integers
+  """
+  def parse_input(content) do
+    content
+    |> String.split("\n", trim: true)
+    |> Enum.map(&String.to_integer/1)
+  end
+
   defp process_measurement(el, {_, :start}), do: {el, 0}
   defp process_measurement(el, {previous, acc}) when el > previous, do: {el, acc + 1}
   defp process_measurement(el, {_previous, acc}), do: {el, acc}
