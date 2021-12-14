@@ -12,6 +12,7 @@ defmodule AdventOfCode2021 do
   alias AdventOfCode2021.Day7
   alias AdventOfCode2021.Day8
   alias AdventOfCode2021.Day9
+  alias AdventOfCode2021.Day10
 
   def day1_part1(), do: read_parse_and_execute(:day1, &Day1.parse_input/1, &Day1.part_1/1)
   def day1_part2(), do: read_parse_and_execute(:day1, &Day1.parse_input/1, &Day1.part_2/1)
@@ -59,6 +60,12 @@ defmodule AdventOfCode2021 do
 
   def day9_part2(),
     do: read_parse_and_execute(:day9, &Day9.parse_input/1, &Day9.part_2/1)
+
+  def day10_part1(),
+    do: read_parse_and_execute(:day10, &Day10.parse_input/1, &Day10.part_1/1)
+
+  def day10_part2(),
+    do: read_parse_and_execute(:day10, &Day10.parse_input/1, &Day10.part_2/1)
 
   defp read_input_file(day) do
     :adventofcode2021
